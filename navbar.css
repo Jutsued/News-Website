@@ -1,0 +1,144 @@
+.navbar {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	background-color: #0d3c6b;
+}
+
+.navbar-links ul {
+	margin: 0;
+	padding: 0;
+	display: flex;
+	color: #fff;
+}
+
+.navbar-links li {
+	list-style: none;
+}
+
+.navbar-links li a {
+	color: #fff;
+	text-decoration: none;
+	padding: 1rem;
+	display: block;
+	transform: .3s ease;
+}
+
+.navbar-links a:hover {
+	color: rgb(218, 5, 5);
+	transform: scale(1.08);
+}
+
+.toggle-button {
+	position: absolute;
+	top: .75rem;
+	right: 1rem;
+	display: none;
+	flex-direction: column;
+	justify-content: space-between;
+	width: 30px;
+	height: 21px;
+}
+
+.toggle-button .bar {
+	height: 3px;
+	width: 100%;
+	background-color: black;
+	border-radius: 10px;
+}
+
+.stick {
+	position: fixed;
+	top: 0;
+	width: 100%;
+	z-index: 1;
+}
+
+.brand-title {
+	font-size: 1.5rem;
+	margin: .5rem;
+	color: #fff;
+}
+
+#form {
+    margin: 0;
+	padding: 0;
+	display: flex;
+	color: #fff;
+}
+
+
+.search{
+	border: 2px solid black;
+	border-radius: 50px;
+    color: #fff;
+	text-decoration: none;
+	padding: .8rem;
+	margin: .4rem 0;
+	display: block;
+	transform: .3s ease;
+ }
+
+.search:hover {
+    transform: scale(1.02);
+}
+
+.search::placeholder {
+    color: #e30000;
+    text-align: center;
+}
+
+.search:focus {
+    background-color: rgb(235, 235, 235);
+    outline: none;
+	color: black;
+}
+
+
+@media (max-width: 600px) {
+    .toggle-button {
+      display: flex;
+      margin-top: 1rem;
+    }
+    
+    .navbar-links {
+      display: none;
+      width: 100%;
+    }
+    
+    .navbar {
+      flex-direction: column;
+      align-items: flex-start;
+    }
+
+	#form {
+		justify-content: center;
+	}
+
+	.input {
+		border: 2px solid black;
+		border-radius: 50%;
+		padding: .5rem;
+	}
+    
+    .navbar-links ul {
+      width: 100%;
+      flex-direction: column;
+    }
+    
+    .navbar-links li {
+      text-align: center;
+    }
+    
+    .navbar-links li a {
+      padding: .5rem 1rem;
+    }
+    
+    .navbar-links.active {
+      display: flex;
+    }
+
+    .brand-title {
+        margin-top: 1.8rem;
+    }
+  }
