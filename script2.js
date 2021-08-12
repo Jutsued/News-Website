@@ -15,7 +15,7 @@ const newsList = document.querySelector('.news-list');
 const main = document.getElementById("main");
 
 
-const APIURL = 'https://newsapi.org/v2/top-headlines?country=us&apiKey=452678616dde4b8b84d89424f422b04e';
+const APIURL = 'https://newsapi.org/v2/top-headlines?country=us&apiKey=452678616dde4b8b84d89424f422b04e&pagesize=16';
 var apikey = '452678616dde4b8b84d89424f422b04e';
 // let url = `https://newsapi.org/v2/everything?q=${topic}&apiKey=${apikey}`;
 
@@ -29,7 +29,7 @@ async function getNews(url) {
 }
 
 getNews(APIURL);
-
+//main function
 function showNews(news){
     main.innerHTML = "";
 
@@ -80,6 +80,7 @@ function showNews(news){
 }
 
 
+//Form/ get input and fetch it
 searchForm.addEventListener("submit", (e) => {
     e.preventDefault();
 
@@ -96,11 +97,12 @@ searchForm.addEventListener("submit", (e) => {
 
 const toggleBtn = document.querySelector('.toggle-button');
 const navbarLinks = document.querySelector('.navbar-links');
-
+//Toggle hamburger menu
 toggleBtn.addEventListener('click', function() {
     navbarLinks.classList.toggle('active')
 });
 
+//Enable Nav to fetch API by clicking
 document.querySelectorAll('.find').forEach(item => {
     item.addEventListener('click', e => {
         console.log(e.target.textContent)
@@ -114,6 +116,7 @@ document.querySelectorAll('.find').forEach(item => {
     })
 })
 
+//Make header fixed
 window.onscroll = function() {myFunction()};
 
 var header = document.getElementById('test');

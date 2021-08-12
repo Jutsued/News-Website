@@ -155,4 +155,43 @@ body{
 a:hover {
     color: rgb(218, 5, 5);
 }
+
+footer{
+    background-color: #0d3c6b;
+}
+
+.contact-container {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    
+}
  
+.contact-container ul li {
+    list-style: none;
+    width: 100%;
+}
+
+.contact-container ul {
+    display: flex;
+}
+
+.contact-container a {
+    color: #fff;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+
+.contactLogos {
+    width: 4%;
+    margin: 0 5px;
+}
+
+.contact-container img:hover {
+    filter: brightness(100);
+}
+
+.contact-container span:hover {
+    color: rgb(218, 5, 5);
+}
