@@ -4,11 +4,13 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href="./style.css" rel="stylesheet">
+    <!-- <link href="./style.css" rel="stylesheet"> -->
     <link href="./navbar.css" rel="stylesheet">
+    <link href="./grid.css" rel="stylesheet">
     <title>News API</title>
 </head>
 <body>
+  <title></title>
     <header>
         <nav class="navbar" id="test">
             <div class="brand-title">Browse News Globally</div>
@@ -30,9 +32,9 @@
                             
                         </form>
                     </li>
-                  <li><a href="#" id="general" class="find">General</a></li>
+                  <li><a href="#" id="general" class="find">NYRegion</a></li>
                   <li><a href="#" id="business" class="find">Business</a></li>
-                  <li><a href="#" id="entertain" class="find">Entertainment</a></li>
+                  <li><a href="#" id="entertain" class="find">Politics</a></li>
                   <li><a href="#" id="health" class="find">Health</a></li>
                   <li><a href="#" id="science" class="find">Science</a></li>
                   <li><a href="#" id="sports" class="find">Sports</a></li>
@@ -46,23 +48,25 @@
         </div>
         <div class="container">
 
-            <div class="world">
-                <h1>Top Headlines Accross The World</h1>
-                <main id="world"></main>
+          <div class="USA">
+            <h1>Top Headlines Accross The World</h1>
+            <main id="main"></main>
+
+        </div>
+
+            <div class="nyc">
+                <h1>Most Viewed</h1>
+                <main id="most"></main>
+                <h1>Whats Happening in NYC</h1>
+                <main id="nyc"></main>
+                <h1>Art Worldwide</h1>
+                <main id="art"></main>
+                <h1>Fashion</h1>
+                <main id="fashion"></main>
             </div>
 
-            <div class="USA">
-                <h1>Top Headlines Accross USA</h1>
-                <main id="main"></main>
-
-            </div>
-    
-        </div> 
         
-    </div>
-
-    <footer>
-        <div class="contact-container">
+        <div class="footer">
             <ul>
               <li> 
                 <a href="tel:%6464190206"> 
@@ -83,10 +87,9 @@
               </li>
             </ul>
           </div>
-
-    </footer>
+        </div>
 <script src="./script.js" defer></script>
-    <script src="./script2.js" defer></script>
+    <script src="./nytimeapi.js" defer></script>
 
 </script>
 </body>

@@ -1,27 +1,22 @@
-// var url = 'http://newsapi.org/v2/top-headlines?' +
-//           'country=us&' +
-//           'apiKey=452678616dde4b8b84d89424f422b04e';
-// var req = new Request(url);
-// fetch(req)
-//     .then(function(response) {
-//         return response.json();
-//     }).then((data) => {
-//         console.log(data)
-//     })
-
 const searchForm = document.getElementById('form');
 const search = document.getElementById('search');
 const newsList = document.querySelector('.news-list');
 const main = document.getElementById("main");
 
-
-const APIURL = 'https://newsapi.org/v2/top-headlines?country=us&apiKey=452678616dde4b8b84d89424f422b04e&pagesize=16';
+const bypass_cors_url = 'https://cors-anywhere.herokuapp.com/'
+const APIURL = `${bypass_cors_url}https://newsapi.org/v2/top-headlines?country=us&apiKey=452678616dde4b8b84d89424f422b04e&pagesize=16`;
 var apikey = '452678616dde4b8b84d89424f422b04e';
-// let url = `https://newsapi.org/v2/everything?q=${topic}&apiKey=${apikey}`;
+
+
+const headers_options = {
+    headers: {
+        'Access-Control-Allow-Origin': '*',
+    }
+}
 
 
 async function getNews(url) {
-    let resp = await fetch(url);
+    let resp = await fetch(url, headers_options);
     let respData = await resp.json();
     console.log(respData)
 

@@ -15,7 +15,7 @@ body{
     max-width: 100%;
 }
 
-.world {
+.nyc {
     display: flex;
     flex-direction: column;
     max-width: 20%;
@@ -23,6 +23,13 @@ body{
 }
 
 .USA {
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    margin-top: 1rem;
+}
+
+.USA_art {
     text-align: center;
     display: flex;
     flex-direction: column;
@@ -37,7 +44,15 @@ body{
      max-width: 100%;
  }
 
- #world {
+ #art {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction:row;
+    justify-content: center;
+    max-width: 100%;
+}
+
+ #nyc {
      display: flex;
      flex-direction: column;
      flex-wrap: wrap;
@@ -48,14 +63,14 @@ body{
 .article {
      box-shadow: 0 4px 5px rgb(0, 0, 0 / 20%);
      overflow: hidden;
-     width: 40%;
+     width: 25%;
      height: auto;
      margin: 1.2rem 1rem;
      transition: .3 ease-in;
      background-color: #f2f2f2;
  }
 
- .world h1 {
+ .nyc h1 {
      text-align: center;
      font-size: 1.2rem;
      font-family: 'Lora', serif;
@@ -63,6 +78,13 @@ body{
  }
 
  .USA h1 {
+    font-family: 'Lora', serif;
+    text-decoration: underline;
+    text-align: center;
+    font-size: 2.4rem;
+ }
+
+ .USA_art h1 {
     font-family: 'Lora', serif;
     text-decoration: underline;
     text-align: center;
@@ -154,6 +176,14 @@ body{
 
 a:hover {
     color: rgb(218, 5, 5);
+}
+
+.extras {
+    max-width: 100%;
+    width: 82%;
+    position: absolute;
+    right: 0%;
+    top: 586%;
 }
 
 footer{

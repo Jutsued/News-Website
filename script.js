@@ -1,79 +1,86 @@
-// var url = 'http://newsapi.org/v2/top-headlines?' +
-//           'country=us&' +
-//           'apiKey=452678616dde4b8b84d89424f422b04e';
-// var req = new Request(url);
-// fetch(req)
-//     .then(function(response) {
-//         return response.json();
-//     }).then((data) => {
-//         console.log(data)
-//     })
 
-// const searchForm = document.querySelector('.search');
-// const input = document.querySelector('.input');
-// const newsList = document.querySelector('.news-list');
+const nyc = document.getElementById("nyc");
 
+const bypass_cors_urls = 'https://cors-anywhere.herokuapp.com/'
 
-const world = document.getElementById("world");
-
-let countries = ["ar", "au", "br", "ca", "co", "cz", "eg", "de", "gr", "hk", "in", "it", "jp", "ng", "no", "kr", "za", "sa", "cn"];
-
-let apKey = '3e070828bcc96aae620854db09456168';
-let apiURL = `http://api.mediastack.com/v1/news?access_key=${apKey}&languages=en&countries=-us&limit=10`;
-
-
-async function worldNews(url) {
-    let resp = await fetch(url);
-    let respData = await resp.json();
-    console.log(respData)
-
-    worldShowNews(respData.data);
+const headers_option = {
+    method: 'GET',
+    headers: {
+        // 'Access-Control-Allow-Origin': '*',
+        "Accept": "application/json"
+    }
 }
 
-worldNews(apiURL);
-
-function worldShowNews(news){
-    world.innerHTML = "";
-
-    news.forEach((data) => {
-
-    let dateNews = data.published_at;
-
-    let newsApiDate = "2020-08-08T04:09:41Z" //API time Format
-
-    let timestamp = new Date(dateNews).getTime();
-    let Day = new Date(timestamp).getDate();
-    let Month = new Date(timestamp).getMonth() + 1;
-    let Year = new Date(timestamp).getFullYear();
-    let OurNewDateFormat = `${Month}/${Day}/${Year}` ;
-
-    if(data.image === null) {
-        data.image = "./img/noimg.jpg"
-    } else {
-       data.image
-    }
+let usrls = "https://api.nytimes.com/services/xml/rss/nyt/Economy.xml";
 
 
-        const newsEl = document.createElement("div");
+async function worldXml() {
+  let url = "https://rss.nytimes.com/services/xml/rss/nyt/NYRegion.xml";
+  let resp = await fetch(url, headers_option);
+  let respData = await resp.text();
+
+  console.log(new window.DOMParser().parseFromString(respData, "text/xml"));
+  showWorldXml(new window.DOMParser().parseFromString(respData, "text/xml"));
+  
+
+}
+
+
+worldXml()
+
+
+const showWorldXml = (xml) => {
+  const names = xml.getElementsByTagName('item');
+  
+  for(let i = 2; i < 12; i++) {
+
+    //getAll images
+    var images = xml.getElementsByTagName('media:content')[i].getAttribute("url");
+    var img = document.createElement("img");
+    img.src = `${images}`;
+    //
+    //title's
+    const titles = xml.getElementsByTagName('title')[i];
+    //
+    //title's link
+    const titleLink = xml.getElementsByTagName('link')[i];
+    //
+    //descriptions
+    const descriptions = xml.getElementsByTagName('description')[i];
+    //
+    //publishedDate
+    const pubDate = xml.getElementsByTagName('pubDate')[i];
+    //
+    //Media-descriptions
+    const shortSummary = xml.getElementsByTagName('media:description')[i];
+    //
+    //article-url
+    const articleURL = xml.getElementsByTagName('atom:link')[i].getAttribute("href");
+    //
+    
+    const newsEl = document.createElement("div");
         newsEl.classList.add("data");
         newsEl.innerHTML = `
-        <div class="data-info">
-        <a href="${data.url}"><h3>${data.title}</h3></a>
-        <span>Published: ${OurNewDateFormat}</span>
-        </div>
-        <img 
-        src="${data.image}"
-        alt = "${data.title}"
-        >
-        <div class="descrition">
-        ${data.description}
-        </div>
-        <a href="${data.url}" target="_blank"><p>Read More</p></a>
-        `;
+    <div class="news-info">
+    <a href="${titleLink.textContent}"><h3>${titles.textContent}</h3></a>
+    <span>Published: ${pubDate.textContent}</span>
+  
+     `
 
-        world.appendChild(newsEl) 
-
-});
-
+    nyc.appendChild(newsEl);
+  }
 }
 
+
+window.onscroll = function() {myFunction()};
+
+var header = document.getElementById('test');
+var stick = header.offsetTop;
+
+function myFunction() {
+    if(window.pageYOffset > stick) {
+        header.classList.add('stick'); 
+    } else {
+        header.classList.remove('stick')
+    }
+}
