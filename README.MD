@@ -4,8 +4,8 @@
 
 ### Screenshot
 
-![](./img/fullimg.jpeg)
-![](./img/mobileimg.jpeg)
+![](./resources/img/fullimg.jpeg)
+![](./resources/img/mobileimg.jpeg
 
 ### Links
 
@@ -17,3 +17,6 @@
 - Semantic HTML5 markup
 - CSS custom properties
 - Flexbox
+- GRID
+- Async 
+
