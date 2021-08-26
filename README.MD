@@ -6,7 +6,7 @@
 
 ![](./resources/img/fullimg.jpeg)
 ![](./resources/img/mobileimg.jpeg)
-"./resources/img/fullimg.jpeg"
+
 ### Links
 
 - Solution URL: [https://github.com/Jutsued/News-Website]
