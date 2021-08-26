@@ -1,4 +1,5 @@
-
+const toggleBtn = document.querySelector('.toggle-button');
+const navbarLinks = document.querySelector('.navbar-links');
 const nyc = document.getElementById("nyc");
 
 const bypass_cors_urls = 'https://cors-anywhere.herokuapp.com/'
@@ -84,3 +85,7 @@ function myFunction() {
         header.classList.remove('stick')
     }
 }
+
+toggleBtn.addEventListener('click', function(){
+  navbarLinks.classList.toggle('active')
+});
