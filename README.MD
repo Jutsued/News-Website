@@ -5,7 +5,7 @@
 ### Screenshot
 
 ![](./resources/img/fullimg.jpeg)
-![](./resources/img/mobileimg.jpeg
+![](./resources/img/mobileimg.jpeg)
 
 ### Links
 
