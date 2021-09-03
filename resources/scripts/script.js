@@ -13,8 +13,18 @@ const headers_option = {
 }
 
 let usrls = "https://api.nytimes.com/services/xml/rss/nyt/Economy.xml";
+var monthNames = ["January", "February", "March", "April", "May", "June",
+      "July", "August", "September", "October", "November", "December"];
 
 
+function getTime (input) {
+  var timestamp = new Date(input).getTime();
+  var Day = new Date(timestamp).getDate();
+  var Month = monthNames[new Date(timestamp).getMonth() + 1];
+  var Year = new Date(timestamp).getFullYear();
+  var time = `${Month} ${Day}, ${Year}`
+  return time;
+}
 async function worldXml() {
   let url = "https://rss.nytimes.com/services/xml/rss/nyt/NYRegion.xml";
   let resp = await fetch(url, headers_option);
@@ -33,7 +43,7 @@ worldXml()
 const showWorldXml = (xml) => {
   const names = xml.getElementsByTagName('item');
   
-  for(let i = 2; i < 12; i++) {
+  for(let i = 2; i < 11; i++) {
 
     //getAll images
     var images = xml.getElementsByTagName('media:content')[i].getAttribute("url");
@@ -50,8 +60,7 @@ const showWorldXml = (xml) => {
     const descriptions = xml.getElementsByTagName('description')[i];
     //
     //publishedDate
-    const pubDate = xml.getElementsByTagName('pubDate')[i];
-    //
+    const pubDate = xml.getElementsByTagName('pubDate')[i].textContent;
     //Media-descriptions
     const shortSummary = xml.getElementsByTagName('media:description')[i];
     //
@@ -64,7 +73,7 @@ const showWorldXml = (xml) => {
         newsEl.innerHTML = `
     <div class="news-info">
     <a href="${titleLink.textContent}"><h3>${titles.textContent}</h3></a>
-    <span>Published: ${pubDate.textContent}</span>
+    <span>Published: ${getTime(pubDate)}</span>
   
      `
 

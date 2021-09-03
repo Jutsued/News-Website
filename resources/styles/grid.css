@@ -11,7 +11,7 @@
     grid-template-rows: auto 20px auto auto; */
     /* grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
      */
-    grid-template-columns: .5fr 3fr 2fr .5fr;
+    grid-template-columns: .5fr 2fr 1fr .5fr;
     
     /* grid-template-rows: 1fr 1fr .01fr 1fr; */
     gap: 2rem;
@@ -132,8 +132,7 @@
    overflow: hidden;
    width: 100%;
    text-align: center;
-   margin: .5rem 1rem;
-   background-color: #f2f2f2;
+   font-size: 12px;
 }
 
 .data img {
@@ -148,7 +147,7 @@
     flex-direction: column;
     padding: 0.5rem 1rem;
     letter-spacing: .5px;
-    text-align: center;
+    text-align: left;
     
 }
 .news-info h3{

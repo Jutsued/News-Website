@@ -17,6 +17,15 @@ const headers_options = {
 let usrl = "https://rss.nytimes.com/services/xml/rss/nyt/HomePage.xml";
 let keyAPI = "Wo0A0SDeIqsDBxWYtkbrnWrwmABjlGFZ";
 
+function getTime (input) {
+  var timestamp = new Date(input).getTime();
+  var Day = new Date(timestamp).getDate();
+  var Month = monthNames[new Date(timestamp).getMonth() + 1];
+  var Year = new Date(timestamp).getFullYear();
+  var time = `${Month} ${Day}, ${Year}`
+  return time;
+}
+
 async function getXml(url) {
   // let url = "https://rss.nytimes.com/services/xml/rss/nyt/HomePage.xml";
   let resp = await fetch(url, headers_options);
@@ -36,7 +45,7 @@ const getUsers = (xml) => {
   const names = xml.getElementsByTagName('item');
   main.innerHTML = '';
 
-  for (let i = 1; i < 7; i++) {
+  for (let i = 2; i < 8; i++) {
 
     //getAll images
     var images = xml.getElementsByTagName('media:content')[i].getAttribute("url");
@@ -53,7 +62,7 @@ const getUsers = (xml) => {
     const descriptions = xml.getElementsByTagName('description')[i];
     //
     //publishedDate
-    const pubDate = xml.getElementsByTagName('pubDate')[i];
+    const pubDate = xml.getElementsByTagName('pubDate')[i].textContent;
     //
     //Media-descriptions
     const shortSummary = xml.getElementsByTagName('media:description')[i];
@@ -67,7 +76,7 @@ const getUsers = (xml) => {
     newsEl.innerHTML = `
     <div class="news-info">
     <a href="${titleLink.textContent}"><h3>${titles.textContent}</h3></a>
-    <span>Published: ${pubDate.textContent}</span>
+    <span>Published: ${getTime(pubDate)}</span>
     </div>
     <img 
     src="${images}"
@@ -105,7 +114,7 @@ getXmlArt()
 const getUsersArt = (xml) => {
   const names = xml.getElementsByTagName('item');
 
-  for (let i = 2; i < 12; i++) {
+  for (let i = 2; i < 11; i++) {
 
     //getAll images
     var images = xml.getElementsByTagName('media:content')[i].getAttribute("url");
@@ -122,7 +131,7 @@ const getUsersArt = (xml) => {
     const descriptions = xml.getElementsByTagName('description')[i];
     //
     //publishedDate
-    const pubDate = xml.getElementsByTagName('pubDate')[i];
+    const pubDate = xml.getElementsByTagName('pubDate')[i].textContent;
     //
     //Media-descriptions
     const shortSummary = xml.getElementsByTagName('media:description')[i];
@@ -136,7 +145,7 @@ const getUsersArt = (xml) => {
     newsEl.innerHTML = `
       <div class="news-info">
       <a href="${titleLink.textContent}"><h3>${titles.textContent}</h3></a>
-      <span>Published: ${pubDate.textContent}</span>
+      <span>Published: ${getTime(pubDate)}</span>
      
        `
 
@@ -160,7 +169,7 @@ getMostView()
 const showMost = (xml) => {
   const names = xml.getElementsByTagName('item');
 
-  for (let i = 2; i < 12; i++) {
+  for (let i = 2; i < 11; i++) {
 
     //getAll images
     var images = xml.getElementsByTagName('media:content')[i].getAttribute("url");
@@ -177,7 +186,7 @@ const showMost = (xml) => {
     const descriptions = xml.getElementsByTagName('description')[i];
     //
     //publishedDate
-    const pubDate = xml.getElementsByTagName('pubDate')[i];
+    const pubDate = xml.getElementsByTagName('pubDate')[i].textContent;
     //
     //Media-descriptions
     const shortSummary = xml.getElementsByTagName('media:description')[i];
@@ -191,7 +200,7 @@ const showMost = (xml) => {
     newsEl.innerHTML = `
       <div class="news-info">
       <a href="${titleLink.textContent}"><h3>${titles.textContent}</h3></a>
-      <span>Published: ${pubDate.textContent}</span>
+      <span>Published: ${getTime(pubDate)}</span>
      
        `
 
@@ -215,7 +224,7 @@ getFashion()
 const showFashion = (xml) => {
   const names = xml.getElementsByTagName('item');
 
-  for (let i = 2; i < 12; i++) {
+  for (let i = 2; i < 10; i++) {
 
     //getAll images
     var images = xml.getElementsByTagName('media:content')[i].getAttribute("url");
@@ -232,7 +241,7 @@ const showFashion = (xml) => {
     const descriptions = xml.getElementsByTagName('description')[i];
     //
     //publishedDate
-    const pubDate = xml.getElementsByTagName('pubDate')[i];
+    const pubDate = xml.getElementsByTagName('pubDate')[i].textContent;
     //
     //Media-descriptions
     const shortSummary = xml.getElementsByTagName('media:description')[i];
@@ -246,7 +255,7 @@ const showFashion = (xml) => {
     newsEl.innerHTML = `
       <div class="news-info">
       <a href="${titleLink.textContent}"><h3>${titles.textContent}</h3></a>
-      <span>Published: ${pubDate.textContent}</span>
+      <span>Published: ${getTime(pubDate)}</span>
      
        `
 
