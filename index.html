@@ -4,48 +4,43 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Movie App" />
+    <meta name="description" content="News App" />
         <meta name="title" property="og:title" content="News" />
         <meta property="og:type" content="Website" />
         <meta 
         name="image" 
         property="og:image" 
-        content="https://live.staticflickr.com/65535/51431995294_cccc2a5623_o.jpg" />
+        content="https://live.staticflickr.com/65535/52199626770_f1e49282f5_k.jpg"  />
         <meta 
         name="description" 
         property="og:description" 
         content="News Site API" />
         <meta name="author" content="Pablo A Bonilla" />
 
-    <!-- <link href="./style.css" rel="stylesheet"> -->
-    <link href="./resources/styles/navbar.css" rel="stylesheet">
-    <link href="./resources/styles/grid.css" rel="stylesheet">
-    <title>News API</title>
+    <link rel="stylesheet" href="./style.css">
+    <title>News Website</title>
 </head>
 <body>
-  <title></title>
     <header>
-      <title class="title">Browse News Globally</title>
-        <nav class="navbar" id="test">
+        <title>Browse News Globally</title>
+        <nav id="test">
             <a href="#" class="toggle-button">
-              <span class="bar"></span>
-              <span class="bar"></span>
-              <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
             </a>
-              <div class="navbar-links">
-
+            <div class="navbar-links">
                 <ul>
                     <li>
-                        <form id="form">
+                        <form action="" id="form">
                             <input 
-                            id="search"
+                            type="text/number" 
                             class="search" 
-                            type="text/number"
-                            placeholder="Search for News"/><br>
-                            
+                            id="search"
+                            placeholder="Search for News">
                         </form>
                     </li>
-                  <li><a href="#" id="general" class="find">NYRegion</a></li>
+                    <li><a href="#" id="general" class="find">NYRegion</a></li>
                   <li><a href="#" id="business" class="find">Business</a></li>
                   <li><a href="#" id="entertain" class="find">Politics</a></li>
                   <li><a href="#" id="health" class="find">Health</a></li>
@@ -54,52 +49,46 @@
                   <li><a href="#" id="technology" class="find">Technology</a></li>
                 </ul>
             </div>
-          </nav>
+        </nav>
     </header>
 
-       
-        </div>
-        <div class="container">
-
-          <div class="USA">
+    <article>
+        <section class="USA">
             <h1>Top Headlines Accross The World</h1>
-            <main id="main"></main>
-            <button type="button" class="page-btn active" id="one">1</button>
-            <button type="button" class="page-btn" id="two">2</button>
-            <button type="button" class="page-btn" id="three">3</button>
-        </div>
+            <main class="main" id="main"></main>
+            <section id="button-container">
+                <button type="button" class="page-btn active" id="one">1</button>
+                <button type="button" class="page-btn" id="two">2</button>
+                <button type="button" class="page-btn" id="three">3</button>
+            </section>
+        </section>
 
-            <div class="nyc">
-                <h1>Most Viewed</h1>
-                <main id="most"></main>
-                <h1>Whats Happening in NYC</h1>
-                <main id="nyc"></main>
-                <h1>Art Worldwide</h1>
-                <main id="art"></main>
-                <h1>Fashion</h1>
-                <main id="fashion"></main>
-            </div>
+        <aside class="nyc">
+            <div class="long-border"></div>
+            <h2>Most Viewed</h2>
+            <section class="sideNews" id="most"></section>
+            <h2>Whats Happening in NYC</h2>
+            <section class="sideNews" id="nyc"></section>
+            <h2>Art Worldwide</h2>
+            <section id="art"></section>
+            <h2>Fashion</h2>
+            <section id="fashion"></section>
+        </aside>
 
-        
-        <div class="footer">
-          <span class="logos">
-            <a href="tel:%6464190206">
-              <img src="./resources/img/smartphone.svg">
-            </a>
-            <a href="mailto:%pabloa.bonilla@outlook.com">
-              <img src="./resources/img/email.svg">
-            </a>
-            <a href="https://github.com/Jutsued" target="_blank">
-              <img src="./resources/img/github.svg">
-            </a>
-            <a href="https://www.linkedin.com/in/pablo-bonilla-999975190/" target="_blank">
-              <img src="./resources/img/linkedin.svg">
-            </a>
-          </span>
-          </div>
-        </div>
-    <script src="./resources/scripts/script.js" defer></script>
-    <script src="./resources/scripts/nytimeapi.js" defer></script>
-    <script src="./resources/scripts/switchPages/pages.js" defer></script>
+        <footer>
+            <span class="logos">
+                <a href="tel:%6464190206">
+                    <img src="./resources/img/smartphone.svg" alt="phone"></a>
+                <a href="mailto:%pabloa.bonilla@outlook.com">
+                    <img src="./resources/img/email.svg" alt="email"></a>
+                <a href="https://github.com/Jutsued">
+                    <img src="./resources/img/github.svg" alt="github"></a>
+                <a href="https://www.linkedin.com/in/pablo-bonilla-999975190/" target="_blank">
+                    <img src="./resources/img/linkedin.svg" alt="linkedin"></a>
+            </span>
+        </footer>
+    </article>
+    
+<script defer src="./script.js"></script>    
 </body>
 </html>
